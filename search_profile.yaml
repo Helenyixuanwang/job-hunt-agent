@@ -1,0 +1,40 @@
+# What the agent searches for. Edit anytime — no code changes needed.
+
+country: ca            # Adzuna country code: ca = Canada, us = United States
+
+roles:
+  - software engineer
+  - AI engineer
+  - machine learning engineer
+
+# Each search runs once per role. Add, remove, or edit freely.
+#   where:       a city or region (leave out to search the whole country)
+#   distance_km: radius around "where"
+#   remote:      true = only postings that mention "remote"
+searches:
+  - label: Greater Vancouver
+    where: Vancouver
+    distance_km: 40
+  - label: Remote (Canada)
+    remote: true
+
+# Words that remove a posting if they appear in it
+exclude_keywords:
+  - principal
+  - director
+  - manager
+  - senior
+  - staff
+  - intern
+  - co-op
+
+max_days_old: 14       # ignore postings older than this
+results_per_search: 20 # postings per role per search (max 50)
+
+# --- Step 2: scoring ---
+min_fit_score: 60
+model: claude-haiku-5-5
+location_preference: >
+  On-site or hybrid in Greater Vancouver, or fully remote from anywhere in Canada.
+  On-site or hybrid roles anywhere else are not a fit.
+notes: "Recent MS CS grad with earlier industry experience. Not looking for internships, co-ops, or lead/staff roles."
